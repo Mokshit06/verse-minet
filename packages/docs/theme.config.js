@@ -3,9 +3,8 @@ import { useRouter } from "next/router";
 const title = "Lightweight and extensible data tables for SolidJS";
 
 export default {
-  projectLink: "https://github.com/mokshit06/solid-table",
-  docsRepositoryBase:
-    "https://github.com/mokshit06/solid-table/tree/next/docs/pages",
+  projectLink: "https://github.com/mokshit06/minet-22",
+  docsRepositoryBase: "https://github.com/mokshit06/minet-22",
   titleSuffix: " – Solid Table",
   search: true,
   unstable_flexsearch: true,

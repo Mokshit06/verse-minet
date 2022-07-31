@@ -1,13 +1,19 @@
-import type { NextPage } from 'next';
+import type {
+  GetServerSidePropsContext,
+  GetServerSidePropsResult,
+  NextPage,
+} from 'next';
 import Head from 'next/head';
+import { prisma } from '../lib/db';
 import Image from 'next/image';
 import Script from 'next/script';
 import { useEffect, useRef } from 'react';
 import { useCurrentPlace, useVisible } from '../components/app-store';
 import { Dashboard } from '../components/dashboard';
 import { Glasses } from '../components/glasses';
+import type { User } from '@prisma/client';
 
-export default function Demo() {
+export default function Demo(props: { user: User }) {
   const visible = useVisible();
   useEffect(() => {
     const listener = (e: any) => {
@@ -39,7 +45,7 @@ export default function Demo() {
     >
       <ProperViewer modelId="7c61edc428a24b188633e526616a729c" />
       <ProperViewer modelId="479b5f3c493349b18c59dbcbe354d98f" />
-      <Dashboard />
+      <Dashboard user={props.user} />
       <Glasses />
     </div>
   );
@@ -89,7 +95,6 @@ function ProperViewer({ modelId }: { modelId: string }) {
         display: place.modelId === modelId ? 'block' : 'none',
       }}
     >
-      <Script src="/sketchfab.js" strategy="beforeInteractive" />
       <iframe
         ref={ref}
         // hide controls and user avatar
@@ -113,21 +118,40 @@ function ProperViewer({ modelId }: { modelId: string }) {
   );
 }
 
-function ModelViewer() {
-  return (
-    <model-viewer
-      style={{ height: '100vh', width: '100vw' }}
-      alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum"
-      src="/mystical_forest_cartoon/scene.gltf"
-      ar
-      ar-modes="webxr scene-viewer quick-look"
-      // environment-image="shared-assets/environments/moon_1k.hdr"
-      // poster="shared-assets/models/NeilArmstrong.webp"
-      // seamless-poster
-      shadow-intensity="1"
-      camera-controls
-      enable-pan
-      camera-orbit="20deg 10deg 3m"
-    />
-  );
+// function ModelViewer() {
+//   return (
+//     <model-viewer
+//       style={{ height: '100vh', width: '100vw' }}
+//       alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum"
+//       src="/mystical_forest_cartoon/scene.gltf"
+//       ar
+//       ar-modes="webxr scene-viewer quick-look"
+//       // environment-image="shared-assets/environments/moon_1k.hdr"
+//       // poster="shared-assets/models/NeilArmstrong.webp"
+//       // seamless-poster
+//       shadow-intensity="1"
+//       camera-controls
+//       enable-pan
+//       camera-orbit="20deg 10deg 3m"
+//     />
+//   );
+// }
+
+export async function getServerSideProps(
+  ctx: GetServerSidePropsContext
+): Promise<GetServerSidePropsResult<any>> {
+  const cookies = ctx.req.cookies;
+  const publicAddress = cookies.publicAddress;
+
+  if (!publicAddress)
+    return { redirect: { destination: '/auth', permanent: false } };
+
+  const user = await prisma.user.findUnique({
+    where: { publicAddress },
+    select: { name: true },
+  });
+
+  return {
+    props: { user },
+  };
 }

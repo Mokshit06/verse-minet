@@ -13,7 +13,7 @@ export default async function statsHandler(
     where: {
       publicAddress: userId as string,
     },
-    select: {
+    include: {
       activity: true,
     },
   });

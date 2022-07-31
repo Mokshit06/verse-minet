@@ -23,53 +23,6 @@ Solid Table is a collection of hooks for **building powerful tables and datagrid
   [Get Started](/docs/getting-started) · [Examples](/examples/basic) · [GitHub Repository](https://github.com/mokshit06/solid-table)
 </div>
 
-## Overview
-
-```jsx
-function Table() {
-  const instance = createTableInstance(table, {
-    columns,
-    data,
-    getCoreRowModel: getCoreRowModelSync()
-  })
-
-  return (
-    <table {...instance.getTableProps()}>
-      <thead>
-        <For each={instance.getHeaderGroups()}>
-          {headerGroup => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              <For each={headerGroup.headers}>
-                {header => (
-                  <th {...header.getHeaderProps()}>
-                    {header.renderHeader()}
-                  </th>
-                )}
-              </For>
-            </tr>
-          )}
-        </For>
-      </thead>
-      <tbody {...instance.getTableBodyProps()}>
-        <For each={instance.getPaginationRowModel().rows}>
-          {(row) => (
-            <tr {...row.getRowProps()}>
-              <For each={row.getVisibleCells()}>
-                {cell => (
-                  <td {...cell.getCellProps()}>{cell.renderCell()}</td>
-                )}
-              </For>
-            </tr>
-          )}
-        </For>
-      </tbody>
-    </table>
-  )
-}
-```
-
-In this example, the `createTable` function accepts a core `table` instance and an `options` object. `table` is an instance of `@tanstack/table-core`, that defines the structure of the table. `options` configures the data, columns and state of the table.
-
 ## Features
 
 - ~14kb or less (with tree-shaking)
@@ -91,9 +44,5 @@ In this example, the `createTable` function accepts a core `table` instance and 
 ### Designed to have zero design.
 
 You want your tables to be powerful without sacrificing how they look! After all, what good is that nice theme you designed if you can't use it?! Solid Table is **headless** by design (it's just a hook), which means that you are in complete and full control of how your table renders down to the very last component, class or style.
-
-### Powerful and Declarative
-
-Solid Table is a workhorse. It's built to materialize, filter, sort, group, aggregate, paginate and display massive data sets using a very small API surface. Just hitch your wagon (new or existing tables) to Solid Table and you'll be supercharged into productivity like never before.
 
 And a lot [more](/docs/getting-started).
