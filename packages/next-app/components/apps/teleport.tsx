@@ -22,7 +22,7 @@ function Place(props: { modelId: string; name: string }) {
     <Box cursor="pointer" onClick={() => place.setModelId(props.modelId)}>
       <Box
         border="1px solid #dddddd56"
-        borderRadius="5px"
+        borderRadius="9px"
         as="img"
         src={`/${props.modelId}.jpg`}
       />
