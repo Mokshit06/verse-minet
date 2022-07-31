@@ -35,8 +35,19 @@ export default function Login() {
             const hash = await (window as any).ethereum.request({
               method: 'eth_requestAccounts',
             });
-            cookieStore.set('publicAddress', hash[0]);
-            await router.push('/demo');
+            try {
+              await fetch('/api/auth/login', {
+                method: 'POST',
+                body: JSON.stringify({
+                  publicAddress: hash[0],
+                }),
+              });
+
+              cookieStore.set('publicAddress', hash[0]);
+              await router.push('/demo');
+            } catch (err) {
+              toast({ title: "User doesn't exist", status: 'error' });
+            }
           }}
         >
           Use Wallet
@@ -51,6 +62,13 @@ export default function Login() {
             const email = form.get('email');
             const name = form.get('name');
 
+            if (!name || !email) {
+              return toast({
+                title: 'Please enter all fields',
+                status: 'error',
+              });
+            }
+
             if (!(window as any).ethereum) {
               return toast({
                 title: 'Please install MetaMask extension',
@@ -61,15 +79,19 @@ export default function Login() {
             const hash = await (window as any).ethereum.request({
               method: 'eth_requestAccounts',
             });
-            await fetch('/api/auth/register', {
-              method: 'POST',
-              body: JSON.stringify({ email, name, publicAddress: hash[0] }),
-              headers: {
-                'Content-Type': 'application/json',
-              },
-            });
-            cookieStore.set('publicAddress', hash[0]);
-            await router.push('/demo');
+            try {
+              await fetch('/api/auth/register', {
+                method: 'POST',
+                body: JSON.stringify({ email, name, publicAddress: hash[0] }),
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+              });
+              cookieStore.set('publicAddress', hash[0]);
+              await router.push('/demo');
+            } catch (error) {
+              toast({ title: 'User already exists', status: 'error' });
+            }
           }}
         >
           <div className="inputs">
