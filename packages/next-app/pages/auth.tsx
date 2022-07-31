@@ -37,12 +37,14 @@ export default function Login() {
               method: 'eth_requestAccounts',
             });
             try {
-              await fetch('/api/auth/login', {
+              const res = await fetch('/api/auth/login', {
                 method: 'POST',
                 body: JSON.stringify({
                   publicAddress: hash[0],
                 }),
               });
+
+              if (!res.ok) throw new Error('');
 
               cookieStore.set('publicAddress', hash[0]);
               await router.push('/demo');
@@ -81,13 +83,16 @@ export default function Login() {
               method: 'eth_requestAccounts',
             });
             try {
-              await fetch('/api/auth/register', {
+              const res = await fetch('/api/auth/register', {
                 method: 'POST',
                 body: JSON.stringify({ email, name, publicAddress: hash[0] }),
                 headers: {
                   'Content-Type': 'application/json',
                 },
               });
+
+              if (!res.ok) throw new Error('');
+
               cookieStore.set('publicAddress', hash[0]);
               await router.push('/demo');
             } catch (error) {
