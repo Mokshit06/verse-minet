@@ -9,7 +9,7 @@ const Feature = ({ text, icon }) => (
   </div>
 );
 
-const title = "Evolving the Metaverse";
+const title = "Evolving meta for people";
 
 const features = {
   lightweight: "Stops addiction",

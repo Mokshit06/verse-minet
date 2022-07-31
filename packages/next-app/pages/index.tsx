@@ -6,7 +6,7 @@ export default function Home() {
       <div className="image">
         <div className="image-wrapper">
           <h1>Verse</h1>
-          <p>Evolving the metaverse</p>
+          <p>Evolving meta for people</p>
 
           <div className="links">
             <Link href="/auth">
@@ -19,71 +19,109 @@ export default function Home() {
         </div>
       </div>
       <div className="in-car">
-        <h2>Solving</h2>
+        <h2>Improving the experience</h2>
         <p>
-          Navigation is central to driving and every car should have a
-          live-updating map tailored to the brand and purpose of the vehicle. We
-          designed Sakaram from the ground up, building on live data sourced
-          from millions of sensors and a gorgeous design that is fully
-          customizable to match the trim of each model.
+          Metaverse has been the talk of the town for a little too long now, and
+          after a keen and in depth analysis of the meta, we’ve come to the
+          conclusion of the cons and pros it carries with itself. While its
+          existence still remains a question, we decided to build a product that
+          solves the many problems that the metaverse brings in, so that
+          whenever it comes out - it is clean and user friendly. - <i>VERSE</i>{' '}
+          <b>evolving meta for people</b>. VERSE has been designed to cater to
+          the needs of the people being the topmost priority, so that every fear
+          of theirs ranging from identity theft to a unique one, from addiction
+          to frequent prompts, we have incorporated every bit of their problems
+          to create VERSE which solves them all.
         </p>
       </div>
       <div className="features">
         <div className="flex">
-          <div className="flex-image">
-            <img src="/traffic.jpg" alt="" />
+          <div
+            className="flex-image"
+            style={{
+              backgroundColor: 'white',
+              display: 'flex',
+              justifyContent: 'center',
+              borderRadius: '15px',
+            }}
+          >
+            <img
+              style={{ objectFit: 'cover', maxHeight: '35vh' }}
+              src="/addiction.jpg"
+              alt=""
+            />
           </div>
           <div className="flex-info">
-            <h2>Live traffic and accurate routes, powered by AI</h2>
+            <h2>
+              Solving the impending topic - <i>Addiction</i>
+            </h2>
             <p>
-              Drivers can avoid congestion and arrive on time with live traffic
-              created from the over 300 million miles of anonymized telemetry
-              data we collect each day, based on which we provide them with the
-              shortest route.
+              VERSE seeks to overcome the problem of addiction through frequent
+              prompts that instruct the users to have a break from the virtual
+              land and utilize the time in the real physical world, the prompt
+              will be shown as a warning sign when the time spent on the
+              platform is more than the average usage limit.
             </p>
           </div>
         </div>
         <div className="flex">
           <div className="flex-info">
-            <h2>Voice assistance</h2>
+            <h2>
+              Diluting <i>Identity Theft</i>
+            </h2>
             <p>
-              Drivers can use voice assistant to search for new destinations, or
-              add stops to an existing route maximizing time with hands on the
-              wheel and eyes on the road. Just say &quot;Directions from
-              `origin` to `destination`&quot;.
+              With the usage of already existing technologies such as
+              blockchain, VERSE resolves the problem of identity theft, as every
+              user will have a unique identity which will never be revealed,
+              every user will be able to control their data through private and
+              public keys, allowing them to own it.
             </p>
           </div>
-          <div className="flex-image">
-            <img src="/voice.jpg" alt="" />
+          <div
+            className="flex-image"
+            style={{
+              backgroundColor: 'white',
+              display: 'flex',
+              justifyContent: 'center',
+              borderRadius: '15px',
+            }}
+          >
+            <img
+              style={{ maxHeight: '30vh', objectFit: 'cover' }}
+              src="/theft.jpg"
+              alt=""
+            />
           </div>
         </div>
         <div className="flex">
           <div className="flex-image">
-            <img src="/music.jpg" alt="" />
+            <img src="/sign.jpg" alt="" />
           </div>
           <div className="flex-info">
-            <h2>Music</h2>
+            <h2>
+              <i>Single Sign-in</i>, ending the interminable
+            </h2>
             <p>
-              In-map audio controls allow the drivers to see the current song
-              playing and skip forward/backward and pause/play songs with
-              minimum interruption from navigation. Audio controls support any
-              sources on your head unit including streaming music, podcast,
-              bluetooth and radio.
+              VERSE provides the users to access all the facilities through a
+              single verse account while being on the platform. No sign in will
+              be required for facebook, google or any other external service, a
+              single VERSE account will allow the users to access all the
+              facilities offered by them in the metaverse.
             </p>
           </div>
         </div>
         <div className="flex">
           <div className="flex-info">
-            <h2>Built-in browser</h2>
+            <h2>Public API</h2>
             <p>
-              Get access to the entire web platform directly in your car. The
-              built-in browser integrates seamlessly with your car and
-              automatically shows you nearby gas stations when the fuel goes
-              below a specific amount and works with the voice assistant
+              VERSE will also serve as a storehouse for anonymous telemetry data
+              which will be available to the companies in the metaverse to
+              enhance and upgrade their services in the virtual world and
+              improve the total user satisfaction score.
             </p>
           </div>
           <div className="flex-image">
-            <img src="/browser.jpg" alt="" />
+            <img src="/api.jpg" alt="" />
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-const title = "Evolving the Metaverse";
+const title = "Evolving meta for people";
 
 export default {
   projectLink: "https://github.com/mokshit06/verse-minet",
@@ -50,17 +50,19 @@ export default {
         <meta httpEquiv="Content-Language" content="en" />
         <meta
           name="description"
-          content={meta.description || "Evolving the Metaverse"}
+          content={meta.description || "Evolving meta for people"}
         />
         <meta
           name="og:description"
-          content={meta.description || "Evolving the Metaverse"}
+          content={meta.description || "Evolving meta for people"}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@mokshit06" />
         <meta
           name="og:title"
-          content={title ? title + " – Verse" : "Verse: Evolving the metaverse"}
+          content={
+            title ? title + " – Verse" : "Verse: Evolving meta for people"
+          }
         />
         <meta name="apple-mobile-web-app-title" content="Verse" />
       </>
