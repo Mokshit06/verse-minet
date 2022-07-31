@@ -29,7 +29,7 @@ function Friend() {
 
 export function Friends() {
   return (
-    <App title="Friends" appId="friends">
+    <App title="Friends" maxWidth="35vw" appId="friends">
       <Box
         mb="4"
         as="input"

@@ -15,7 +15,7 @@ export function App({
     <Box
       as={motion.div}
       // initial="closed"
-      transition={{ duration: 0.2 } as any}
+      transition={{ duration: 0.25 } as any}
       animate={
         apps.currentApp === null
           ? 'open'
@@ -25,7 +25,7 @@ export function App({
       }
       variants={{
         open: { opacity: 1, scale: 1 },
-        enlarged: { opacity: 1, scale: 1.04 },
+        enlarged: { opacity: 1, scale: 1.05 },
         closed: { opacity: 0, scale: 0.9 },
       }}
       backdropFilter="blur(8.4px) saturate(180%)"

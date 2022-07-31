@@ -26,7 +26,7 @@ export function Dashboard() {
           height="90vh"
           pointerEvents="none"
         >
-          <Box display="flex" gap="15px">
+          <Box display="flex" gap="20px" flexDir="column">
             {Object.entries(apps.apps).map(([name, CurrentApp]) => (
               <AnimatePresence key={name}>
                 <CurrentApp />

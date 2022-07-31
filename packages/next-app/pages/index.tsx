@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Script from 'next/script';
 import { useEffect, useRef } from 'react';
-import { useVisible } from '../components/app-store';
+import { useCurrentPlace, useVisible } from '../components/app-store';
 import { Dashboard } from '../components/dashboard';
 import { Glasses } from '../components/glasses';
 
@@ -37,7 +37,8 @@ export default function Home() {
         justifyContent: 'center',
       }}
     >
-      <ProperViewer />
+      <ProperViewer modelId="7c61edc428a24b188633e526616a729c" />
+      <ProperViewer modelId="479b5f3c493349b18c59dbcbe354d98f" />
       <Dashboard />
       <Glasses />
     </div>
@@ -49,16 +50,15 @@ declare class Sketchfab {
   init(uid: string, config: Record<string, any>): void;
 }
 
-function ProperViewer() {
+function ProperViewer({ modelId }: { modelId: string }) {
   const ref = useRef<HTMLIFrameElement>(null);
+  const place = useCurrentPlace();
   const client = useRef<Sketchfab>();
 
   useEffect(() => {
     client.current = new Sketchfab(ref.current!);
 
-    console.log(client);
-
-    client.current.init('7c61edc428a24b188633e526616a729c', {
+    client.current.init(modelId, {
       success(api: any) {
         api.start();
         api.addEventListener('viewerready', function () {
@@ -74,23 +74,37 @@ function ProperViewer() {
       ui_stop: 0,
       navigation: 'fps',
     });
+
+    console.log(client.current);
+
     return () => {};
-  }, []);
+  }, [modelId]);
 
   return (
-    <div style={{ maxHeight: '100vh', maxWidth: '100vw', overflow: 'hidden' }}>
+    <div
+      style={{
+        maxHeight: '100vh',
+        maxWidth: '100vw',
+        overflow: 'hidden',
+        display: place.modelId === modelId ? 'block' : 'none',
+      }}
+    >
       <Script src="/sketchfab.js" strategy="beforeInteractive" />
       <iframe
         ref={ref}
         // hide controls and user avatar
-        style={{ height: '115vh', width: '110vw', margin: '-7.5vh -5vw' }}
+        style={{
+          height: '115vh',
+          width: '110vw',
+          margin: '-7.5vh -5vw',
+        }}
         src=""
         id="api-frame"
         allow="autoplay; fullscreen; xr-spatial-tracking"
-        xr-spatial-tracking
-        execution-while-out-of-viewport
-        execution-while-not-rendered
-        web-share
+        xr-spatial-tracking="true"
+        execution-while-out-of-viewport="true"
+        execution-while-not-rendered="true"
+        web-share="true"
         allowFullScreen
         mozallowfullscreen="true"
         webkitallowfullscreen="true"

@@ -22,7 +22,7 @@ export function Glasses() {
           style={{
             position: 'absolute',
             width: '100%',
-            pointerEvents: 'none',
+            pointerEvents: 'painted',
             filter: 'drop-shadow(2px -10px 10px #5b5b5b)',
           }}
         />

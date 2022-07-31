@@ -1,6 +1,7 @@
 import create from 'zustand';
 import { Friends } from './apps/friends';
 import { Games } from './apps/games';
+import { Teleport } from './apps/teleport';
 
 export const useApps = create<{
   apps: Record<string, () => React.ReactElement>;
@@ -9,7 +10,8 @@ export const useApps = create<{
 }>(set => ({
   apps: {
     friends: Friends,
-    games: Games,
+    // games: Games,
+    teleport: Teleport,
   },
   currentApp: null as string | null,
   setCurrentApp(app) {
@@ -25,5 +27,15 @@ export const useVisible = create<{
   visible: 'glasses',
   setVisible(visible) {
     set(state => ({ ...state, visible }));
+  },
+}));
+
+export const useCurrentPlace = create<{
+  modelId: string;
+  setModelId(modelId: string): void;
+}>(set => ({
+  modelId: '7c61edc428a24b188633e526616a729c',
+  setModelId(modelId) {
+    set(state => ({ ...state, modelId }));
   },
 }));
