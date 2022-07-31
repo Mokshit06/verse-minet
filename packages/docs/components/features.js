@@ -9,16 +9,16 @@ const Feature = ({ text, icon }) => (
   </div>
 );
 
-const title = "Lightweight and extensible data tables for SolidJS";
+const title = "Evolving the Metaverse";
 
 const features = {
-  lightweight: "Lightweight",
-  aggregation: "Aggregation",
-  sort: "Multi sort",
-  globalFilters: "Global Filters",
-  dataModels: "Server-side data models",
-  virtualizable: "Virtualizable",
-  pagination: "Pagination",
+  lightweight: "Stops addiction",
+  aggregation: "Easy to use",
+  sort: "Developer API",
+  globalFilters: "Prevents identity thef",
+  dataModels: "Secure",
+  virtualizable: "Single Sign-in",
+  pagination: "Friendly messages",
 };
 
 export default () => {

@@ -4,7 +4,7 @@ import Callout from 'nextra-theme-docs/callout'
 
 ### Getting the current user's public information
 
-URL: `https://minet.mokshitjain.co/api/auth/me`
+URL: `https://verse.mokshitjain.co/api/auth/me`
 
 ```ts
 type User = {
@@ -18,12 +18,12 @@ type User = {
 Example:
 
 ```js
-await fetch('https://minet.mokshitjain.co/api/auth/me').then(r => r.json())
+await fetch('https://verse.mokshitjain.co/api/auth/me').then(r => r.json())
 ```
 
 ### Getting the user's activity stats
 
-URL: `https://minet.mokshitjain.co/api/stats?user=[publicAddress]`
+URL: `https://verse.mokshitjain.co/api/stats?user=[publicAddress]`
 
 ```ts
 type Response = User & {
@@ -34,7 +34,7 @@ type Response = User & {
 Example:
 
 ```js
-await fetch('https://minet.mokshitjain.co/api/stats?user=[publicAddress]').then(r => r.json())
+await fetch('https://verse.mokshitjain.co/api/stats?user=[publicAddress]').then(r => r.json())
 ```
 
 The `publicAddress` here refers to the wallet ID, which you can get from Metamask or similar extensions in the following way:
@@ -42,12 +42,12 @@ The `publicAddress` here refers to the wallet ID, which you can get from Metamas
 ```js
 const hash = await window.ethereum.request({ method: 'eth_requestAccounts' })
 
-await fetch(`https://minet.mokshitjain.co/api/stats?user=${hash[0]}`).then(r => r.json())
+await fetch(`https://verse.mokshitjain.co/api/stats?user=${hash[0]}`).then(r => r.json())
 ```
 
 ### Find what apps the user might get addicted to soon
 
-URL: `https://minet.mokshitjain.co/api/soon-to-be-issues?user=[publicAddress]`
+URL: `https://verse.mokshitjain.co/api/soon-to-be-issues?user=[publicAddress]`
 
 ```ts
 type Response = User & {
@@ -58,7 +58,7 @@ type Response = User & {
 Example:
 
 ```js
-await fetch('https://minet.mokshitjain.co/api/soon-to-be-issues?user=[publicAddress]').then(r => r.json())
+await fetch('https://verse.mokshitjain.co/api/soon-to-be-issues?user=[publicAddress]').then(r => r.json())
 ```
 
 The `publicAddress` here refers to the wallet ID, which you can get from Metamask or similar extensions in the following way:
@@ -66,12 +66,12 @@ The `publicAddress` here refers to the wallet ID, which you can get from Metamas
 ```js
 const hash = await window.ethereum.request({ method: 'eth_requestAccounts' })
 
-await fetch(`https://minet.mokshitjain.co/api/soon-to-be-issues?user=${hash[0]}`).then(r => r.json())
+await fetch(`https://verse.mokshitjain.co/api/soon-to-be-issues?user=${hash[0]}`).then(r => r.json())
 ```
 
 ### Get friendly messages using GPT3 based on activity
 
-URL: `https://minet.mokshitjain.co/api/format-message`
+URL: `https://verse.mokshitjain.co/api/format-message`
 
 ```ts
 type Request = {
@@ -86,7 +86,7 @@ type Response = {
 Example:
 
 ```js
-await fetch('https://minet.mokshitjain.co/api/format-message', {
+await fetch('https://verse.mokshitjain.co/api/format-message', {
   method: "POST",
   body: JSON.stringify({
     publicAddress: "",

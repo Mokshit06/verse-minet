@@ -5,21 +5,21 @@ export default function Home() {
     <div className="cover home">
       <div className="image">
         <div className="image-wrapper">
-          <h1>Sakaram</h1>
-          <p>Healthy mix of safety, metaverse and real life</p>
+          <h1>Verse</h1>
+          <p>Evolving the metaverse</p>
 
           <div className="links">
             <Link href="/auth">
               <a className="link">Try it</a>
             </Link>
-            <a href="https://docs.minet.mokshitjain.co" className="link">
+            <a href="https://docs.verse.mokshitjain.co" className="link">
               View docs
             </a>
           </div>
         </div>
       </div>
       <div className="in-car">
-        <h2>In-Car Driver Experience</h2>
+        <h2>Solving</h2>
         <p>
           Navigation is central to driving and every car should have a
           live-updating map tailored to the brand and purpose of the vehicle. We
@@ -91,10 +91,7 @@ export default function Home() {
         <div className="try-container">
           <div className="try-text">
             <h2>Try it right now!</h2>
-            <p>
-              Try Sakaram and let yourself decide whether this is the best car
-              dashboard interface ever or not!
-            </p>
+            <p>Try Verse right here in your browser!</p>
             <Link href="/auth">
               <a className="link">Try</a>
             </Link>

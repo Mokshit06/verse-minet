@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
 
-const title = "Lightweight and extensible data tables for SolidJS";
+const title = "Evolving the Metaverse";
 
 export default {
-  projectLink: "https://github.com/mokshit06/minet-22",
-  docsRepositoryBase: "https://github.com/mokshit06/minet-22",
-  titleSuffix: " – Solid Table",
+  projectLink: "https://github.com/mokshit06/verse-minet",
+  docsRepositoryBase: "https://github.com/mokshit06/verse-minet",
+  titleSuffix: " – Verse",
   search: true,
   unstable_flexsearch: true,
   floatTOC: true,
@@ -13,9 +13,9 @@ export default {
     return (
       <span
         className="mx-2 font-extrabold hidden md:inline select-none"
-        title={"Solid Table: " + title}
+        title={"Verse: " + title}
       >
-        Solid Table
+        Verse
       </span>
     );
   },
@@ -50,29 +50,19 @@ export default {
         <meta httpEquiv="Content-Language" content="en" />
         <meta
           name="description"
-          content={
-            meta.description ||
-            "Lightweight and extensible data tables for SolidJS"
-          }
+          content={meta.description || "Evolving the Metaverse"}
         />
         <meta
           name="og:description"
-          content={
-            meta.description ||
-            "Lightweight and extensible data tables for SolidJS"
-          }
+          content={meta.description || "Evolving the Metaverse"}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@mokshit06" />
         <meta
           name="og:title"
-          content={
-            title
-              ? title + " – Solid Table"
-              : "Solid Table: Lightweight and extensible data tables"
-          }
+          content={title ? title + " – Verse" : "Verse: Evolving the metaverse"}
         />
-        <meta name="apple-mobile-web-app-title" content="Solid Table" />
+        <meta name="apple-mobile-web-app-title" content="Verse" />
       </>
     );
   },
