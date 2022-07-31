@@ -1,6 +1,7 @@
 import { Box, Divider, useToast } from '@chakra-ui/react';
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import { useRouter } from 'next/router';
+import { prisma } from '../lib/db';
 
 declare const cookieStore: { set(name: string, value: string): void };
 
@@ -107,10 +108,17 @@ export default function Login() {
   );
 }
 
-export function getServerSideProps(
+export async function getServerSideProps(
   ctx: GetServerSidePropsContext
-): GetServerSidePropsResult<any> {
-  if (ctx.req.cookies.publicAddress) {
+): Promise<GetServerSidePropsResult<any>> {
+  const key = ctx.req.cookies.publicAddress;
+  if (!key) {
+    return { props: {} };
+  }
+
+  const user = await prisma.user.findUnique({ where: { publicAddress: key } });
+
+  if (user) {
     return { redirect: { destination: '/demo', permanent: false } };
   }
 

@@ -151,6 +151,10 @@ export async function getServerSideProps(
     select: { name: true },
   });
 
+  if (!user) {
+    return { redirect: { destination: '/auth', permanent: false } };
+  }
+
   return {
     props: { user },
   };
