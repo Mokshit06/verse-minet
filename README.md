@@ -1,7 +1,3 @@
-# Todo
+# Verse - _evolving meta for people_
 
-- make dashboard (spotify, files, work etc)
-- travel area (google maps)
-- can click and change background to that
-- shows alerts and activities done that day
-- find some decent 3d model
+VERSE has been designed to cater to the needs of the people being the topmost priority, so that every fear of theirs ranging from identity theft to a unique one, from addiction to frequent prompts, we have incorporated every bit of their problems to create VERSE which solves them all.
