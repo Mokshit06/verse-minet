@@ -3,6 +3,13 @@ const withNextra = require("nextra")({
   themeConfig: "./theme.config.js",
   unstable_flexsearch: true,
   unstable_staticImage: true,
+  typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: true,
+  },
 });
 
 module.exports = withNextra({});
